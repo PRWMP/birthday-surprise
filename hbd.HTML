@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>🎁 Surprise HBD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sriracha', cursive;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      background-attachment: fixed;
+      background-size: cover;
+      color: #333;
+    }
+    .screen {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      padding: 20px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .active { display: flex !important; }
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      cursor: pointer;
+      transition: transform 0.2s;
+      margin: 40px auto 20px;
+    }
+    .app-icon:hover { transform: scale(1.05); }
+    input {
+      padding: 10px;
+      margin: 20px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      width: 80%;
+      max-width: 300px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 20px;
+      background: #5f9ea0;
+      color: white;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover { background: #468189; }
+    .next-btn {
+      font-size: 1.2em;
+      padding: 12px 26px;
+      background-color: #ff8c42;
+    }
+    video { width: 100%; height: 100%; object-fit: cover; }
+    img.question-img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .home-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .home-gallery img {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .question-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .question-img.left { align-self: flex-start; transform: rotate(-3deg); }
+    .question-img.right { align-self: flex-end; transform: rotate(3deg); }
+    .question-img.center { align-self: center; transform: rotate(-1deg); }
+    .summary-answer { margin-top: 5px; color: #444; font-size: 0.9em; }
+    .summary-answers {
+      margin-top: 20px;
+      text-align: left;
+      background: #ffffffcc;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 400px;
+      font-size: 0.95em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- [ ... Existing pages: home, q1 to q5 ... ] -->
+<div id="home" class="screen active">
+  <h1>HAPPY BIRTHDAY! 🎉</h1>
+  <div class="home-gallery">
+    <img src="IMG_F1.JPG" alt="Gallery 1">
+    <img src="IMG_F2.JPG" alt="Gallery 2">
+    <img src="IMG_F3.JPG" alt="Gallery 3">
+  </div>
+  <div class="app-icon" onclick="goToScreen('q1')">🎁</div>
+</div>
+
+<div id="q1" class="screen">
+  <div class="question-container">
+    <h2>Question 1</h2>
+    <img src="IMG_Q1.JPG" alt="คำถามที่ 1" class="question-img left">
+    <p>วันนี้วันอาไยย?</p>
+    <input type="text" id="answer1" placeholder="พิมพ์คำตอบที่นี่...">
+    <div>
+      <button onclick="goToScreen('home')">ย้อนกลับ</button>
+      <button class="next-btn" onclick="goToScreen('q2')">ถัดไป</button>
+    </div>
+  </div>
+</div>
+
+<div id="q2" class="screen">
+  <div class="question-container">
+    <h2>Question 2</h2>
+    <img src="IMG_Q2.JPG" alt="คำถามที่ 2" class="question-img right">
+    <p>วันนี้วันที่เท่าไร?</p>
+    <input type="text" id="answer2" placeholder="พิมพ์คำตอบที่นี่...">
+    <div>
+      <button onclick="goToScreen('q1')">ย้อนกลับ</button>
+      <button class="next-btn" onclick="goToScreen('q3')">ถัดไป</button>
+    </div>
+  </div>
+</div>
+
+<div id="q3" class="screen">
+  <div class="question-container">
+    <h2>Question 3</h2>
+    <img src="IMG_Q3.JPG" alt="คำถามที่ 3" class="question-img center">
+    <p>เดือนอะไรเอ่ย?</p>
+    <input type="text" id="answer3" placeholder="พิมพ์คำตอบที่นี่...">
+    <div>
+      <button onclick="goToScreen('q2')">ย้อนกลับ</button>
+      <button class="next-btn" onclick="goToScreen('q4')">ถัดไป</button>
+    </div>
+  </div>
+</div>
+
+<div id="q4" class="screen">
+  <div class="question-container">
+    <h2>Question 4</h2>
+    <img src="IMG_Q4.JPG" alt="คำถามที่ 4" class="question-img left">
+    <p>อายุเท่าไยแย้ววว?</p>
+    <input type="text" id="answer4" placeholder="พิมพ์คำตอบที่นี่...">
+    <div>
+      <button onclick="goToScreen('q3')">ย้อนกลับ</button>
+      <button class="next-btn" onclick="goToScreen('q5')">ถัดไป</button>
+    </div>
+  </div>
+</div>
+
+<div id="q5" class="screen">
+  <div class="question-container">
+    <h2>Question 5</h2>
+    <img src="IMG_Q5.JPG" alt="คำถามที่ 5" class="question-img right">
+    <p>ถ้าขอพรได้1ข้อ จะขออาไยย?</p>
+    <input type="text" id="answer5" placeholder="พิมพ์คำอวยพรที่นี่...">
+    <div>
+      <button onclick="goToScreen('q4')">ย้อนกลับ</button>
+      <button class="next-btn" onclick="goToScreen('summary')">ถัดไป</button>
+    </div>
+  </div>
+</div>
+  
+<div id="summary" class="screen">
+  <h2>สรุปคำตอบของคุณ 🎉</h2>
+  <div class="summary-answers" id="summaryContent"></div>
+  <button onclick="goToScreen('video')">ดูวิดีโอ</button>
+</div>
+
+<div id="video" class="screen">
+  <h2>ของขวัญวิดีโอสำหรับคุณ 🎥</h2>
+  <div class="video-wrapper">
+  <video controls autoplay onended="goToScreen('wish')">
+    <source src="VDO.MOV" type="video/mp4">
+    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+  </video>
+</div>
+
+<div id="wish" class="screen">
+  <h2>สุขสันต์วันเกิดอีกครั้งนะคะ! 🎂</h2>
+  <p style="max-width: 600px; margin-top: 20px; font-size: 1.2em;">
+    ขอให้ปีนี้เป็นปีที่สดใส เต็มไปด้วยความสุข ความสำเร็จ และเสียงหัวเราะทุกวัน<br><br>
+    ขอบคุณที่เป็นคนพิเศษในชีวิตของเรา รักที่สุดเลยยย ❤️<br><br>
+    Happy Birthday!!! 🎈🎁
+  </p>
+  <button onclick="goToScreen('home')">กลับไปหน้าแรก</button>
+</div>
+
+<script>
+  function goToScreen(id) {
+    const screens = document.querySelectorAll('.screen');
+    const target = document.getElementById(id);
+    if (!target) {
+      alert("ไม่พบหน้าจอที่มี id: " + id);
+      return;
+    }
+    screens.forEach(s => s.classList.remove('active'));
+    target.classList.add('active');
+    if (id === 'summary') fillSummary();
+  }
+
+  function fillSummary() {
+    const answers = {
+      q1: { correct: ['อาทิตย์', 'Sun'] },
+      q2: { correct: ['22'] },
+      q3: { correct: ['มิถุนายน', '6'] },
+      q4: { correct: ['21'] }
+    };
+    let html = '';
+    for (let i = 1; i <= 4; i++) {
+      const user = document.getElementById(`answer${i}`).value.trim();
+      const isCorrect = answers[`q${i}`].correct.includes(user);
+      html += `<p><strong>ข้อที่ ${i}:</strong> ${user} - ${isCorrect ? '<span style="color:green">เก่งมากกกก แฟนเค้าเก่งที่สุดดดด </span>' : '<span style="color:red">ผิดจ้าา ลองใหม่เบยย 😅</span>'}<br><span class='summary-answer'>คำตอบที่ถูก: ${answers[`q${i}`].correct.join(' หรือ ')}</span></p>`;
+    }
+    const wish = document.getElementById('answer5').value.trim();
+    html += `<hr><p><strong>ข้อที่ 5:</strong> "${wish}"</p><p>ขอให้พรที่ขอเป็นจริงในเร็ววันนะคะ 💖 สุขสันต์วันเกิดอีกครั้ง! 🎂✨</p>`;
+    document.getElementById('summaryContent').innerHTML = html;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    goToScreen('home');
+  });
+</script>
+
+</body>
+</html>
